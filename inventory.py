@@ -39,6 +39,13 @@ def display_inventory(store_dict):
     print("Current Inventory:")
     for name, details in store_dict.items():
         print(f"{name}: Price = N{details['price']}, Quantity = {details['quantity']}")
+
+def sum_product(store):
+    total = 0
+    for product in store.values():
+        total += product["price"] * product["quantity"]
+    return total
+
    
 
 def start():
@@ -48,7 +55,8 @@ def start():
         2. Update Product Stock
         3. Sell Product
         4. Display Inventory
-        5. Exit
+	5. sum of product
+        6. Exit
         ''')
 
         user_choice = int(input("Enter your choice: "))
@@ -76,6 +84,9 @@ def start():
             display_inventory(store)
 
         elif user_choice == 5:
+            print(sum_product(store))
+
+        elif user_choice == 6:
             print("Exiting the program.")
             break
 
